@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import {IoIosArrowDown} from "react-icons/io";
-import {navItem} from '@/app/constants/constants'
+import navItems from '@/app/constants/constants'
 
 export function SingleNavItem(d: navItem) {
+
+
     const [animationParent] = useAutoAnimate();
     const [isItemOpen, setItem] = useState(false);
 
-/
+
     return (
         <Link
             ref={animationParent}
@@ -51,4 +53,4 @@ export function SingleNavItem(d: navItem) {
                 </div>
             )}
         </Link>
-    )};
+    )}

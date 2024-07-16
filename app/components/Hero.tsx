@@ -21,24 +21,24 @@ const HeroSection = () => {
                 </div>
 
                 <div className={'flex flex-col space-y-1 max-w-md items-center justify-center'}>
+
+
                     <h2 className="text-white  text-[15px] items-center justify-center mb-4">
                         North West London Registered Electrician
                     </h2>
-                    <p className="text-white  mb-4 text-[16px] flex font-bold  items-center justify-center tracking-wider max-prose">
-                        Provides reliable electrical services, including repairs, installations, and
-                        inspections
-                    </p>
 
                     <p className="text-white  mb-4 text-[16px] flex font-bold  items-center justify-center tracking-wider max-prose">
-                        Provides reliable electrical services, including repairs, installations, and
-                        inspections
+                        For all your Electrical Repairs,Instalation,and Inspections.
+                        Electric James is a Fully qualified and reliable electrician, 18th edition and Part P certified,
+                        trusted Which? Trader, in Cricklewood, NW2.
                     </p>
                     <p className="text-white  mb-4 text-[16px] flex font-bold  items-center justify-center tracking-wider max-prose">
-                        Provides reliable electrical services, including repairs, installations, and
-                        inspections
+                        For an electrical landlord certificate, PAT testing,
+                        installing new underfloor heating, outdoor garden lights,
+                        fitting a new electric oven,storage heater installations or
+                        just fixing a broken socket,
                     </p>
                 </div>
-
                 <div className="flex items-center space-x-4 mt-4">
                     <MdOutlinePhone className="h-6 w-6 text-white"/>
                     <span className="text-white text-sm">123-456-7890</span>
@@ -65,7 +65,10 @@ const HeroSection = () => {
 export default HeroSection;
 
 
-
+// For all your Electrical Repairs,Instalation,and Inspections.
+//     call Electric James on 078 2544 7057 or 020 3662 3589 or email hello@electricjames.com.
+//     Electric James is a Fully qualified and reliable electrician,  <br/>  18th edition and Part P certified, trusted Which?
+//     Trader, in Cricklewood, NW2.
 
 
 

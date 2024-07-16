@@ -1,3 +1,4 @@
+"use client"
 import {AiOutlineClose} from "react-icons/ai";
 import {navItems} from "@/app/constants/constants";
 import React,{useState} from "react";
