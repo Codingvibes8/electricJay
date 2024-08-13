@@ -6,13 +6,17 @@ import navItems from '@/app/constants/constants'
 export function SingleNavItem(d: navItem) {
 
 
-    const [animationParent] = useAutoAnimate();
+    
     const [isItemOpen, setItem] = useState(false);
-
-
+const toggleItem = ()=>{
+    return(
+        setItem(true)
+    )
+}
+ 
     return (
         <Link
-            ref={animationParent}
+            
             onClick={toggleItem}
             href={d.link ?? "#"}
             className="relative px-2 py-3 transition-all "
