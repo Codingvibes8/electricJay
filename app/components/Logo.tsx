@@ -10,7 +10,7 @@ const  Logo = ()=>{
                 </span>
                 <span className='text-white text-5xl
                          font-bold font-serif leading-none'>
-                  Electric James
+                  ElectricJay
                  </span>
             </div>
         </div>

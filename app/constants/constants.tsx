@@ -16,12 +16,12 @@ export const navItems = [
         children: [
             {
                 label: "Residential Electrical Repairs",
-                link: "/services/ResidentialElectricalRepairs",
+                link: "/services/patTest",
                 icon:SunIcon,
             },
             {
                 label: "Commercial  Electrical Repairs",
-                link: "/services/CommercialElectricalRepairs",
+                link: "/services/ElectricalSafetyCertificates",
                 icon:SunIcon,
             },
 
@@ -60,20 +60,21 @@ export const navItems = [
 
 
 export const servicePageItems=[
+
     {
         id:1,
-        title:'Residential Electrical Repairs',
-        url:'/services/residentialElectricalRepairs',
+        title:'Electrical Safety Certificates',
+        url:'/services/ElectricalSafetyCertificates',
     },
     {
         id:2,
-        title:'CommercialElectricalRepairs',
-        url:'/services/CommercialElectricalRepairs',
+        title:'Outdoor Lighting and Heating',
+        url:'/services/OutdoorLightingAndHeating',
     },
     {
         id:3,
-        title:'Outdoor Lighting and Heating',
-        url:'/services/OutdoorLightingAndHeating',
+        title:'PAT Testing',
+        url:'/services/patTest',
     },
     {
         id:4,
@@ -84,6 +85,11 @@ export const servicePageItems=[
         id:5,
         title:'AirConServices',
         url:'/services/AirConServices',
+    },
+    {
+        id:5,
+        title:'Flood Damage',
+        url:'/services/FloodDamage',
     }
 ]
 
