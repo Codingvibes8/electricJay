@@ -38,21 +38,21 @@ export default function Navbar() {
     }
 
     return (
-        <div className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm h-20 shadow-md">
+        <div className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm h-20 shadow-md bg-gradient-to-r from-red-700 to-gray-300">
             {/* left side  */}
             <section className="flex items-center gap-10">
                 {/* logo */}
                 <div className='flex flex-col items-center justify-center'>
                     <div className='flex items-center justify-center space-x-1'>
                         <span>
-                    <MdElectricBolt className='w-8 h-8 text-red-900 rounded-full bg-green-500  p-[2px]'/>
+                    <MdElectricBolt className='w-8 h-8 text-red-900 rounded-full bg-white  p-[2px]'/>
                     </span>
-                        <span className='text-red-600 text-2xl
+                        <span className='text-white text-2xl
                              font-bold font-serif leading-none'>
                     Electric James
                   </span>
                     </div>
-                    <p className='text-gray-700 text-[1rem] font-serif font-medium'>
+                    <p className='text-white text-[1rem] font-serif font-medium'>
                         Good,Honest,Reliable Electrician
                     </p>
                 </div>
@@ -68,7 +68,7 @@ export default function Navbar() {
                             className="relative group  px-2 py-3 transition-all "
                         >
                             <p className="flex cursor-pointer items-center gap-2
-              text-red-500 font-semibold group-hover:text-black text-[1.2rem]">
+              text-slate-100 font-semibold group-hover:text-black text-[1.2rem] duration-500 transform hover:translate-y-1.5">
                                 <span>{d.label}</span>
                                 {d.children && (
                                     <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />

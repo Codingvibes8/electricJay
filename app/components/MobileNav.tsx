@@ -11,7 +11,7 @@ export default function MobileNav() {
     const openSideMenu = () => setSideMenu(true);
 
     return (
-        <section className="h-[calc(100vh-5rem)] fixed left-0 top-0 flex  min-h-screen w-full justify-center md:hidden">
+        <section className="h-[calc(100vh-5rem)] fixed left-0 top-0 flex  min-h-screen w-full justify-center md:hidden z-20">
             <div className="w-full h-full bg-red-500 px-4 py-4">
                 <section className="flex justify-end">
                     {isSideMenuOpen ? (
