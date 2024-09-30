@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import {IoIosArrowDown} from "react-icons/io";
-import navItems from '@/app/constants/constants'
+
 
 export function SingleNavItem(d: navItem) {
 

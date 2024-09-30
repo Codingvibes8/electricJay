@@ -3,13 +3,13 @@
 import Link from "next/link";
 import React, { useState} from "react";
 
-import {navItems} from "@/app/constants/constants";
+import {navItems, socialIcons} from "@/app/constants/constants";
 import MobileNav from './MobileNav'
 
 import { FaSquareFacebook,
           FaXTwitter,
          FaSquareInstagram,
-         FaSquareWhatsapp,} from "react-icons/fa"
+         FaSquareWhatsapp,} from "react-icons/fa6"
 
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -23,228 +23,141 @@ type NavItem = {
     label: string;
     link?: string;
     children?: NavItem[];
+    icon?:iconType;
 
 }
 
 
 export default function Navbar() {
 
-    const [isSideMenuOpen, setSideMenu] = useState(false);
-    function openSideMenu() {
-        setSideMenu(true);
-    }
-    function closeSideMenu() {
-        setSideMenu(false);
-    }
+    const [open, setOpen] = useState(false);
 
     return (
-        <div className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm h-20 shadow-md bg-gradient-to-r from-red-700 to-gray-300">
-            {/* left side  */}
-            <section className="flex items-center gap-10">
-                {/* logo */}
+        <nav className="mx-auto flex w-full max-w-7xl justify-between px-4 py-5
+         text-sm h-20 shadow-md bg-gradient-to-r from-red-700 to-gray-300">
+                {/* left side content  */}
+            <div className="flex items-center gap-10">
+
+                        {/* logo */}
+
                 <div className='flex flex-col items-center justify-center'>
                     <div className='flex items-center justify-center space-x-1'>
                         <span>
-                    <MdElectricBolt className='w-8 h-8 text-red-900 rounded-full bg-white  p-[2px]'/>
+                    <MdElectricBolt className='w-6 h-6 text-red-900 rounded-full bg-white  p-[2px]'/>
                     </span>
-                        <span className='text-white text-2xl
+                        <span className='text-white text-xl
                              font-bold font-serif leading-none'>
                     Electric James
                   </span>
                     </div>
-                    <p className='text-white text-[1rem] font-serif font-medium'>
+                    <p className='text-white text-[12px] font-serif font-medium'>
                         Good,Honest,Reliable Electrician
                     </p>
                 </div>
 
 
-                {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu}/>}
-                <div className="hidden md:flex items-center gap-4 transition-all">
+                       {/* navlinkMd */}
+                <div className={'hidden md:flex items-center justify-center gap-4 text-white hover:font-bold hover:text-slate-200 text-[16px]'}>
+                {navItems.map((items,index) => (
+                       <Link key={index} href={items.link}>
+                  {items.label}
+                      </Link>
+                ))}
+                 </div>
+                          {/* MobileView */}
+                {/*//<MobileNav />*/}
 
-                    {navItems.map((d, i) => (
-                        <Link
-                            key={i}
-                            href={d.link ?? "#"}
-                            className="relative group  px-2 py-3 transition-all "
-                        >
-                            <p className="flex cursor-pointer items-center gap-2
-              text-slate-100 font-semibold group-hover:text-black text-[1.2rem] duration-500 transform hover:translate-y-1.5">
-                                <span>{d.label}</span>
-                                {d.children && (
-                                    <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />
-                                )}
-                            </p>
+            </div>
 
-                            {/* dropdown */}
-                            {d.children && (
-                                <div className="absolute left-0 top-10 hidden w-auto
-                 flex-col gap-1 rounded-lg bg-white py-3
-                  shadow-md transition-all group-hover:flex z-50">
-                                    {d.children.map((ch, i) => (
-                                        <Link
-                                            key={i}
-                                            href={ch.link ?? "#"}
-                                            className=" flex cursor-pointer items-center py-1 pl-6 pr-8
-                       text-neutral-400 hover:text-black text-2xl"
-                                        >
+            <div>
 
-                                            {/* item */}
-                                            <span className="whitespace-nowrap   pl-3 ">
-                                        {ch.label}
-                                        </span>
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </Link>
-                    ))}
-                </div>
-                {/* navItems */}
-            </section>
-
-            {/* right side data */}
-            {/*<section className=" hidden md:flex items-center gap-6">*/}
-
-            {/*    <div className={'flex items-center justify-center gap-4'}>*/}
-            {/*        <span> <FaSquareWhatsapp className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>*/}
-            {/*        <span> <FaSquareFacebook className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>*/}
-            {/*        <span> <FaXTwitter className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>*/}
-            {/*        <span> <FaSquareInstagram className='text-red-700 text-3xl  rounded-xl border-2 transition-all hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>*/}
-
-
-            {/*    </div>*/}
-
-
-            {/*</section>*/}
-
-            <GiHamburgerMenu
-                onClick={openSideMenu}
-                className="cursor-pointer text-4xl md:hidden"
-            />
         </div>
+
+                      {/*} right side content */}
+            <div className=" hidden md:flex flex-col justify-center items-center gap-2">
+                <div className={'flex items-center justify-center gap-4'}>
+                    {socialIcons.map((socialIcon) => (
+                        <div key={socialIcon.id}>
+                            <span>{socialIcon.icon} </span>
+                        </div>
+                    ))}
+
+                </div>
+                <div>
+                <span className={'text-sm'}> Call: 07877 988-885 or 0209 789-654 </span>
+                </div>
+            </div>
+        </nav>
+
+
     );
 }
 
 
 
 
-// function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
+
+
+
+
+
+
+
+
+// import Link from "next/link";
+// import { navBarLinks, socials } from "@/data/constants";
+// import NavMenuBtn from "@/components/NavMenuBtn";
+
+
+
+
+
+// const NavbarLogic = () => {
+//
 //     return (
-//         <section className="fixed left-0 top-0 flex h-full min-h-screen w-full
-//     justify-center md:hidden bg-cover bg-no-repeat bg-center bg-fixed z-50 bg-green-3s00"
-//              >
-//
-//             <div className=" h-full w-full bg-white px-4 py-4">
-//                 <section className="flex justify-end">
-//                     <AiOutlineClose
-//                         onClick={closeSideMenu}
-//                         className="cursor-pointer text-4xl "
-//                     />
-//                 </section>
-//                 <div className='flex items-center justify-center'>
-//                     {/* logo */}
-//                     <div className='flex flex-col items-center justify-center mb-6'>
-//                   <span className='text-red-600 text-3xl
-//          font-bold font-serif leading-none'>
-//                     Electric James
-//                   </span>
-//                         <p className='text-gray-700 text-[1.2rem] font-serif font-medium'>
-//                             Good,Honest,Reliable Electrician
-//                         </p>
-//                     </div>
+//         <nav className="bg-red-800 w-full sticky top-0 left-0 z-50">
+//             <div className="h-20 text-white p-4 w-full mx-auto flex items-center justify-between md:h-24 lg:px-20 xl:px-40">
+//                 {/* logo */}
+//                 <Link href="/"> <span className="flex items-center justify-start font-bold font-serif">
+//             ElectricJay </span>
+//                 </Link>
+//                 {/* navLinks */}
+//                 <div className="hidden md:flex gap-4 items-center justify-center">
+//                     {navBarLinks.map((item) =>
+//                         ( <>
+//                                 <Link href={item.path} key={item.title}>
+//                                     <span className=''>{item.title}</span>
+//                                 </Link>
+//                                 {item.subServices && item.subServices.map((subItem, id) =>
+//                                     <Link href={subItem.path} key={id}>
+//                                         <span className=''>{subItem.title}</span>
+//                                     </Link> )}
+//                             </>
+//                         ))}
 //                 </div>
-//                 <div className="flex flex-col items-center justify-center text-[1.5rem] text-gray-700 mb-6 gap-2 transition-all duration-500">
-//                     {navItems.map((d, i) => (
-//                         <SingleNavItem
-//                             key={i}
-//                             label={d.label}
-//                             link={d.link}
-//                         >
-//                             {d.children}
-//                         </SingleNavItem>
-//                     ))}
-//                 </div>
-//
-//                 <section className="flex flex-col gap-4 mt-4 items-center justify-center">
-//                     {/*socialicons*/}
-//                     <div className={'flex items-center justify-center gap-4'}>
-//                         <span> <FaSquareWhatsapp
-//                             className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>
-//                         <span> <FaSquareFacebook
-//                             className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>
-//                         <span> <FaXTwitter
-//                             className='text-red-700 text-3xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>
-//                         <span> <FaSquareInstagram
-//                             className='text-red-700 text-3xl  rounded-xl border-2 transition-all hover:translate-y-1.5 duration-500 hover:text-blue-800'/></span>
-//
-//
-//                     </div>
-//
-//                     <div className='flex items-center justify-center'>
+//                 {/* socialLinks */}
+//                 <div className="md:flex justify-center items-center hidden">
+//                     {socials.map((item) =>
+//                         ( <Link href={item.link} key={item.name}>
+//                             <span className="">{item.icon}</span>
+//                         </Link> ))}
+//                     <div className="flex justify-center items-center text-sm">
 //                 <span>
-//                     <FaPhoneSquare
-//                         className='rounded-xl text-red-700 border-2 text-3xl transition-all hover:border-black'/>
-//                      </span>
-//                         <span className={'text-lg text-red-700 font-bold'}>:0796577888<br/>0208765785</span>
-//
-//
+//                     Free quotes: 0786 498-959 or <br /> 0209 876-567
+//                 </span>
 //                     </div>
-//                 </section>
-//             </div>
-//         </section>
-//     );
-// }
-//
-// function SingleNavItem(d: NavItem) {
-//
-//     const [isItemOpen, setItem] = useState(false);
-//
-//     function toggleItem() {
-//         return setItem(!isItemOpen);
-//     }
-//
-//     return (
-//         <Link
-//
-//             onClick={toggleItem}
-//             href={d.link ?? "#"}
-//             className="relative px-2 py-3 transition-all "
-//         >
-//             <p className="flex cursor-pointer items-center gap-2
-//        text-neutral-400 group-hover:text-black">
-//                 <span>{d.label}</span>
-//                 {d.children && (
-//                     // rotate-180
-//                     <IoIosArrowDown
-//                         className={`text-xs transition-all ${isItemOpen && "rotate-180"}`}
-//                     />
-//                 )}
-//             </p>
-//
-//             {/* dropdown */}
-//             {isItemOpen && d.children && (
-//                 <div className="w-auto flex-col gap-1 rounded-lg bg-white py-3
-//           transition-all flex ">
-//                     {d.children.map((ch, i) => (
-//                         <Link
-//                             key={i}
-//                             href={ch.link ?? "#"}
-//                             className="flex cursor-pointer items-center
-//                 py-1 pl-6 pr-8 text-neutral-400 hover:text-black"
-//                         >
-//
-//                             {/* item */}
-//                             <span className="whitespace-nowrap pl-3 ">
-//                 {ch.label}
-//               </span>
-//                         </Link>
-//                     ))}
 //                 </div>
-//             )}
-//         </Link>
-//     )}
-//
-//
+//                 {/* MOBILE MENU */}
+//                 <div className="flex items-center justify-end text-yellow-100 md:hidden">
+//                     <NavMenuBtn />
+//                 </div>
+//             </div>
+//         </nav> );
+// };
+// export default NavbarLogic;
+
+
+
 
 
 

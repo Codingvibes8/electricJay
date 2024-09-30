@@ -1,58 +1,73 @@
+import {FaSquareFacebook, FaSquareInstagram, FaSquareWhatsapp, FaXTwitter} from "react-icons/fa6";
+import React from "react";
 
-
-
-
-import {HomeIcon, SunIcon} from "@heroicons/react/24/outline";
 
 export const navItems = [
     {
         label: "Home",
         link: "/",
-        icon:HomeIcon,
+
+    },
+    {
+        label: "About",
+        link: "/",
+
     },
     {
         label: "Services",
         link: "/services",
         children: [
             {
+                id:1,
                 label: "Residential Electrical Repairs",
                 link: "/services/patTest",
-                icon:SunIcon,
+
             },
             {
+                id:2,
                 label: "Commercial  Electrical Repairs",
                 link: "/services/ElectricalSafetyCertificates",
-                icon:SunIcon,
+
             },
 
             {
+                id:3,
                 label: "Outdoor Lighting and Heating",
                 link: "/services/OutdoorLightingAndHeating",
-                icon:SunIcon,
+
             },
 
             {
+                id:4,
                 label: "Electric Vehicle Charging Installation",
                 link: "/services/ElectricVehicleChargingInstallation",
-                icon:HomeIcon,
+
 
             },
             {
+                id:5,
                 label: "Air Conditioning Installation & Services",
                 link: "/services/AirConServices",
-                icon:HomeIcon,
+
             },
             {
+                id:6,
                 label: "Flood damage",
                 link: "/services//FloodDamage",
-                icon:SunIcon,
+
             },
             {
+                id:7,
                 label: "Contact us",
-                icon:HomeIcon,
+
                 link: "/contact",
             }
         ]
+    },
+    {
+        label: "Contact",
+        link: "/",
+
     },
 
 
@@ -87,12 +102,29 @@ export const servicePageItems=[
         url:'/services/AirConServices',
     },
     {
-        id:5,
+        id:6,
         title:'Flood Damage',
         url:'/services/FloodDamage',
     }
 ]
 
 
-
+export const socialIcons =[
+        {id:1,
+        icon: <FaSquareWhatsapp
+            className='text-red-700 text-xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/>
+        },
+        {id:2,
+         icon: <FaSquareFacebook
+        className='text-red-700 text-xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/>
+        },
+       {id:3,
+        icon:<FaXTwitter
+        className='text-red-700 text-xl rounded-xl border-2 transition-all  hover:translate-y-1.5 duration-500 hover:text-blue-800'/>
+       },
+       {id:4,
+       icon:<FaSquareInstagram
+        className='text-red-700 text-xl  rounded-xl border-2 transition-all hover:translate-y-1.5 duration-500 hover:text-blue-800'/>
+       }
+]
 
